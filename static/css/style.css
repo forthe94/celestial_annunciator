@@ -91,6 +91,12 @@ footer p {
     color: white;
 }
 
+.login {
+    display: flex;
+    align-items: center;
+    flex: 0;
+}
+
 .login a {
     display: flex;
     align-items: center;
@@ -171,7 +177,7 @@ footer p {
     margin-top: 5px;
 }
 
-.search_form input[type="submit"]{
+input[type="submit"]{
     width: auto;
     padding: 5px 35px;
     border: none;

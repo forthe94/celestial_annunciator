@@ -1,0 +1,29 @@
+{% extends "celestial_annucator/base.html"%}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content%}
+<main>
+    <form>
+        <div>
+            <label>Логин</label>
+            <input type="text"
+                   placeholder="User@example.ru">
+        </div>
+        <div>
+            <label>Пароль</label>
+            <input type="password" placeholder="password">
+        </div>
+        <div class="div_login_submit" >
+        <input type="submit" value="Войти">
+        </div>
+
+            <a href="/registration">Регистрация</a>
+
+    </form>
+</main>
+{% endblock %}
+
