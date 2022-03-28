@@ -1,0 +1,62 @@
+body {
+    background-image: none;
+}
+main {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    padding: 0 60px;
+    max-width: 510px;
+    display: flex;
+    flex-direction: column;
+}
+
+form div {
+    margin-top: 20px;
+}
+
+form a {
+    margin-top: 25px;
+    color: white;
+    text-align: center;
+}
+
+form a:visited {
+    color: white;
+}
+
+form a:hover {
+    color: grey;
+}
+
+input, label {
+    border-radius: 5px;
+    border: none;
+    height: 32px;
+
+}
+
+input {
+    text-align: center;
+}
+
+label {
+    padding: 8px 17px;
+    position: relative;
+    top: 26px;
+    background: black;
+    color: white;
+}
+
+input[type="submit"] {
+    margin-top: 20px;
+}
+
+.div_login_submit {
+    display: flex;
+    justify-content: center;
+}

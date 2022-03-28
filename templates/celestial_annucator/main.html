@@ -1,0 +1,30 @@
+{% extends "celestial_annucator/base.html"%}
+
+{% block content %}
+<main>
+    <div class="search_content">
+        <h2>Укажите маршрут, чтобы найти дешевые авиабилеты</h2>
+        <form class="search_form">
+            <div class="search_form_text">
+                <label>Откуда</label><input type="text"
+                                            placeholder="Москва">
+            </div>
+            <div class="search_form_text">
+                <label>Куда</label><input type="text"
+                                          placeholder="Владивосток">
+            </div>
+            <div class="search_form_date">
+                <label>Дата вылета</label><input type="date">
+            </div>
+            <div class="search_form_date">
+                <label>Обратно</label><input type="date">
+            </div>
+            <div class="search_form_submit">
+                <div>
+                    <input type="submit" value="Найти авиабилет">
+                </div>
+            </div>
+        </form>
+    </div>
+</main>
+{% endblock %}
