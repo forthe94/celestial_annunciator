@@ -42,21 +42,31 @@ input, label {
 
 input {
     text-align: center;
+    margin-top: 25px;
 }
 
 label {
     padding: 8px 17px;
     position: relative;
-    top: 26px;
+    top: 50px;
     background: black;
     color: white;
 }
 
 input[type="submit"] {
     margin-top: 20px;
+    margin: auto;
+    text-align: center;
+    display: block;
+    margin-top: 25px;
 }
 
 .div_login_submit {
     display: flex;
     justify-content: center;
+}
+
+li {
+    color: white;
+    list-style-type: none;
 }
