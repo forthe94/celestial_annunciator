@@ -5,7 +5,7 @@ from authapp.manager import UserManager
 
 # Create your models here.
 class User(AbstractUser):
-    username = None
+    # username = None
     email = models.EmailField('email address', unique=True, error_messages={
             'unique': "A user with that email already exists."})
     age = models.PositiveIntegerField('Возраст', null=True)

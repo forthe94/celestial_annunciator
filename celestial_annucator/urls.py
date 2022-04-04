@@ -23,5 +23,4 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', index, name="index"),
-    path('registration/', registration, name="registration"),
 ]
