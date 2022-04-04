@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from mainapp.models import UserRequest, Segment
+from mainapp.models import SavedSearch, Segment
 from authapp.models import User
 
 # UserRequest
@@ -19,7 +19,7 @@ class UserRequestSerializer(serializers.ModelSerializer):
     add_time = serializers.DateTimeField(required=False, format="%d.%m.%Y %H:%M")
 
     class Meta:
-        model = UserRequest
+        model = SavedSearch
         fields = ['id',
                     'user',
                     'marker',
@@ -38,7 +38,7 @@ class UserRequestSerializer(serializers.ModelSerializer):
 # Segment
 class SegmentSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
-    user_request = serializers.PrimaryKeyRelatedField(many=True, queryset=UserRequest.objects.all(), required=False, allow_null=True)
+    user_request = serializers.PrimaryKeyRelatedField(many=True, queryset=SavedSearch.objects.all(), required=False, allow_null=True)
     travel_date = serializers.DateField(required=False, format="%Y-%m-%d")
     origin = serializers.CharField(max_length=255, required=False)
     destination = serializers.CharField(max_length=255, required=False)
