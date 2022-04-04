@@ -4,7 +4,7 @@ export const dataProvider = {
         let firstElement = true;
 
         for (let i in data) {
-            sendUrl += firstElement ? `${i}=${data[i]}` : `$${i}=${data[i]}`
+            sendUrl += firstElement ? `${i}=${data[i]}` : `&${i}=${data[i]}`
             firstElement = false
         }
 

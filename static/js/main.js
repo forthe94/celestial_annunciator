@@ -45,8 +45,9 @@ const handlerSelectInput = (e) => {
 // обработчик отправки данных из формы
 const handlerSubmit = (e) => {
     e.preventDefault()
+    clearTimeout(timer);
     const url = document.location.origin;
-    const request = dataProvider.post(url, dataForm);
+    const request = dataProvider.get(url, dataForm);
     request
         .then(res => console.log(res))
 }
