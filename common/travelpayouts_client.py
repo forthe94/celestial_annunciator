@@ -1,3 +1,6 @@
+# API Client for TravelPayouts
+# https://support.travelpayouts.com/hc/en-us/articles/203956163
+
 import dataclasses
 import requests
 from celestial_annucator import settings
@@ -43,6 +46,19 @@ class TravelPayoutsClient:
             sorting: str = 'price',
             unique: bool = False
     ):
+        """
+        @param origin: - IATA код аэропорта вылета например 'MOW'
+        @param destination: - IATA код аэропорта прилета например 'CMB'
+        @param departure_at: - дата вылета в формате ISO 'YYYY-MM' или 'YYYY-MM-DD'
+        @param return_at: - дата прилёта в формате ISO 'YYYY-MM' или 'YYYY-MM-DD',
+            для билетов в один конец указывать не обязательно
+        @param direct: - флаг без пересадок
+        @param limit: - количество билетов на странице
+        @param page: - номер страницы
+        @param sorting: - сортировка 'price' или 'route'
+        @param unique: - флаг только уникальные маршруты
+        @return:
+        """
         params = {
             'origin': origin,
             'destination': destination,
