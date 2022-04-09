@@ -29,7 +29,7 @@ const handlerInput = (e) => {
 // обработка input type text
 const handlerSelectInput = (e) => {
     const data = {};
-    const url = ${document.location.origin}/airports_by_term;
+    const url = `${document.location.origin}/airports_by_term`;
     const nameInput = e.target.name;
     clearTimeout(timer);
     data['term'] = e.target.value;
