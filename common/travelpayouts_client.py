@@ -2,8 +2,10 @@
 # https://support.travelpayouts.com/hc/en-us/articles/203956163
 
 import dataclasses
+from itertools import islice
+
 import requests
-from celestial_annucator import settings
+from celestial_annucator import settings, airports_data
 
 
 @dataclasses.dataclass
@@ -77,3 +79,14 @@ class TravelPayoutsClient:
         )
 
         return ret.json()
+
+    @staticmethod
+    def get_airports_by_term(term: str):
+        ap_data = airports_data.get_data()
+
+        def airports_by_term_generator(data: dict, term_str: str):
+            for airport in data:
+                if airport['name'] and airport['name'].lower().startswith(term_str):
+                    yield airport
+
+        return list(islice(airports_by_term_generator(ap_data, term), settings.AIRPORTS_BY_TERM_COUNT))

@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+import celestial_annucator.views
 from celestial_annucator.views import index, registration
 
 urlpatterns = [
@@ -24,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('registration/', registration, name="registration"),
+    path('airports_by_term', celestial_annucator.views.get_airports_by_term)
 ]

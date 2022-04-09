@@ -1,0 +1,212 @@
+[
+  {
+    "country_code": "RU",
+    "code": "JOK",
+    "coordinates": {
+      "lat": 56.716667,
+      "lon": 47.9
+    },
+    "name": "\u0419\u043e\u0448\u043a\u0430\u0440-\u041e\u043b\u0430",
+    "time_zone": "Europe/Moscow",
+    "name_translations": {
+      "en": "Yoshkar-Ola"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u0448\u043a\u0430\u0440-\u041e\u043b\u0435",
+      "pr": "\u0419\u043e\u0448\u043a\u0430\u0440-\u041e\u043b\u0435",
+      "ro": "\u0419\u043e\u0448\u043a\u0430\u0440-\u041e\u043b\u044b",
+      "su": "\u0419\u043e\u0448\u043a\u0430\u0440-\u041e\u043b\u0430",
+      "tv": "\u0419\u043e\u0448\u043a\u0430\u0440-\u041e\u043b\u043e\u0439",
+      "vi": "\u0432 \u0419\u043e\u0448\u043a\u0430\u0440-\u041e\u043b\u0443"
+    }
+  },
+  {
+    "country_code": "CA",
+    "code": "YHK",
+    "coordinates": {
+      "lat": 68.63333,
+      "lon": -95.95
+    },
+    "name": "\u0419\u043e\u0430-\u0425\u0435\u0439\u0432\u0435\u043d",
+    "time_zone": "America/Cambridge_Bay",
+    "name_translations": {
+      "en": "Gjoa Haven"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u0430-\u0425\u0435\u0439\u0432\u0435\u043d\u0443",
+      "pr": "\u0419\u043e\u0430-\u0425\u0435\u0439\u0432\u0435\u043d\u0435",
+      "ro": "\u0419\u043e\u0430-\u0425\u0435\u0439\u0432\u0435\u043d\u0430",
+      "su": "\u0419\u043e\u0430-\u0425\u0435\u0439\u0432\u0435\u043d",
+      "tv": "\u0419\u043e\u0430-\u0425\u0435\u0439\u0432\u0435\u043d\u043e\u043c",
+      "vi": "\u0432 \u0419\u043e\u0430-\u0425\u0435\u0439\u0432\u0435\u043d"
+    }
+  },
+  {
+    "country_code": "GB",
+    "code": "YEO",
+    "coordinates": {
+      "lat": 51.016666,
+      "lon": -2.55
+    },
+    "name": "\u0419\u043e\u0432\u0438\u043b\u0442\u043e\u043d",
+    "time_zone": "Europe/London",
+    "name_translations": {
+      "en": "Yeovilton"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u0432\u0438\u043b\u0442\u043e\u043d\u0443",
+      "pr": "\u0419\u043e\u0432\u0438\u043b\u0442\u043e\u043d\u0435",
+      "ro": "\u0419\u043e\u0432\u0438\u043b\u0442\u043e\u043d\u0430",
+      "su": "\u0419\u043e\u0432\u0438\u043b\u0442\u043e\u043d",
+      "tv": "\u0419\u043e\u0432\u0438\u043b\u0442\u043e\u043d\u043e\u043c",
+      "vi": "\u0432 \u0419\u043e\u0432\u0438\u043b\u0442\u043e\u043d\u0430"
+    }
+  },
+  {
+    "country_code": "PG",
+    "code": "YEQ",
+    "coordinates": {
+      "lat": -5.1,
+      "lon": 143.91667
+    },
+    "name": "\u0419\u0435\u043d\u043a\u0438\u0441",
+    "time_zone": "Pacific/Port_Moresby",
+    "name_translations": {
+      "en": "Yenkis"
+    },
+    "cases": {
+      "da": "\u0419\u0435\u043d\u043a\u0438\u0441\u0443",
+      "pr": "\u0419\u0435\u043d\u043a\u0438\u0441\u0435",
+      "ro": "\u0419\u0435\u043d\u043a\u0438\u0441\u0430",
+      "su": "\u0419\u0435\u043d\u043a\u0438\u0441",
+      "tv": "\u0419\u0435\u043d\u043a\u0438\u0441\u043e\u043c",
+      "vi": "\u0432 \u0419\u0435\u043d\u043a\u0438\u0441"
+    }
+  },
+  {
+    "country_code": "KR",
+    "code": "RSU",
+    "coordinates": {
+      "lat": 34.8419,
+      "lon": 127.61267
+    },
+    "name": "\u0419\u043e\u0441\u0443",
+    "time_zone": "Asia/Seoul",
+    "name_translations": {
+      "en": "Yeosu"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u0441\u0443",
+      "pr": "\u0419\u043e\u0441\u0443",
+      "ro": "\u0419\u043e\u0441\u0443",
+      "su": "\u0419\u043e\u0441\u0443",
+      "tv": "\u0419\u043e\u0441\u0443",
+      "vi": "\u0432 \u0419\u043e\u0441\u0443"
+    }
+  },
+  {
+    "country_code": "NC",
+    "code": "HNG",
+    "coordinates": {
+      "lat": -20.666668,
+      "lon": 164.9
+    },
+    "name": "\u0419\u0435\u043d\u0433\u0435\u043d",
+    "time_zone": "Pacific/Noumea",
+    "name_translations": {
+      "en": "Hienghene"
+    },
+    "cases": {
+      "da": "\u0419\u0435\u043d\u0433\u0435\u043d\u0443",
+      "pr": "\u0419\u0435\u043d\u0433\u0435\u043d\u0435",
+      "ro": "\u0419\u0435\u043d\u0433\u0435\u043d\u0430",
+      "su": "\u0419\u0435\u043d\u0433\u0435\u043d",
+      "tv": "\u0419\u0435\u043d\u0433\u0435\u043d\u043e\u043c",
+      "vi": "\u0432 \u0419\u0435\u043d\u0433\u0435\u043d"
+    }
+  },
+  {
+    "country_code": "JP",
+    "code": "RNJ",
+    "coordinates": {
+      "lat": 27.033333,
+      "lon": 128.43333
+    },
+    "name": "\u0419\u043e\u0440\u043e\u043d\u0434\u0437\u0438\u043c\u0430",
+    "time_zone": "Asia/Tokyo",
+    "name_translations": {
+      "en": "Yoronjima"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u0440\u043e\u043d\u0434\u0437\u0438\u043c\u0435",
+      "pr": "\u0419\u043e\u0440\u043e\u043d\u0434\u0437\u0438\u043c\u0435",
+      "ro": "\u0419\u043e\u0440\u043e\u043d\u0434\u0437\u0438\u043c\u044b",
+      "su": "\u0419\u043e\u0440\u043e\u043d\u0434\u0437\u0438\u043c\u0430",
+      "tv": "\u0419\u043e\u0440\u043e\u043d\u0434\u0437\u0438\u043c\u043e\u0439",
+      "vi": "\u0432 \u0419\u043e\u0440\u043e\u043d\u0434\u0437\u0438\u043c\u0443"
+    }
+  },
+  {
+    "country_code": "NG",
+    "code": "YOL",
+    "coordinates": {
+      "lat": 9.266111,
+      "lon": 12.432222
+    },
+    "name": "\u0419\u043e\u043b\u0430",
+    "time_zone": "Africa/Lagos",
+    "name_translations": {
+      "en": "Yola"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u043b\u0435",
+      "pr": "\u0419\u043e\u043b\u0435",
+      "ro": "\u0419\u043e\u043b\u044b",
+      "su": "\u0419\u043e\u043b\u0430",
+      "tv": "\u0419\u043e\u043b\u043e\u0439",
+      "vi": "\u0432 \u0419\u043e\u043b\u0443"
+    }
+  },
+  {
+    "country_code": "AU",
+    "code": "OKR",
+    "coordinates": {
+      "lat": -9.751593,
+      "lon": 143.40556
+    },
+    "name": "\u0419\u043e\u0440\u043a-\u0410\u0439\u043b\u0435\u043d\u0434",
+    "time_zone": "Australia/Brisbane",
+    "name_translations": {
+      "en": "Yorke Island"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u0440\u043a-\u0410\u0439\u043b\u0435\u043d\u0434\u0443",
+      "pr": "\u0419\u043e\u0440\u043a-\u0410\u0439\u043b\u0435\u043d\u0434\u0435",
+      "ro": "\u0419\u043e\u0440\u043a-\u0410\u0439\u043b\u0435\u043d\u0434\u0430",
+      "su": "\u0419\u043e\u0440\u043a-\u0410\u0439\u043b\u0435\u043d\u0434",
+      "tv": "\u0419\u043e\u0440\u043a-\u0410\u0439\u043b\u0435\u043d\u0434\u043e\u043c",
+      "vi": "\u0432 \u0419\u043e\u0440\u043a-\u0410\u0439\u043b\u0435\u043d\u0434"
+    }
+  },
+  {
+    "country_code": "CO",
+    "code": "EYP",
+    "coordinates": {
+      "lat": 5.320729,
+      "lon": -72.386284
+    },
+    "name": "\u0419\u043e\u043f\u0430\u043b\u044c",
+    "time_zone": "America/Bogota",
+    "name_translations": {
+      "en": "El Yopal"
+    },
+    "cases": {
+      "da": "\u0419\u043e\u043f\u0430\u043b\u044e",
+      "pr": "\u0419\u043e\u043f\u0430\u043b\u0435",
+      "ro": "\u0419\u043e\u043f\u0430\u043b\u044f",
+      "su": "\u0419\u043e\u043f\u0430\u043b\u044c",
+      "tv": "\u0419\u043e\u043f\u0430\u043b\u0435\u043c",
+      "vi": "\u0432 \u0419\u043e\u043f\u0430\u043b\u044c"
+    }
+  }
+]
