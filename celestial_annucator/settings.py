@@ -133,3 +133,4 @@ AUTH_USER_MODEL = 'authapp.User'
 TRAVELPAYOUTS_API_URL = 'https://api.travelpayouts.com/aviasales/v3/'
 TRAVELPAYOUTS_API_TOKEN = os.getenv('TRAVELPAYOUTS_API_TOKEN')
 AIRPORTS_BY_TERM_COUNT = 10
+AIRPORTS_DATA_URL = 'https://api.travelpayouts.com/data/ru/cities.json'
