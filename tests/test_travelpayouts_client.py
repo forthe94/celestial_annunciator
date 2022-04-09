@@ -12,7 +12,6 @@ def test_prices_for_dates():
         destination='CMB',
         departure_at='2022-04'
     )
-    print(ret)
     assert ret['success'] is True
 
 

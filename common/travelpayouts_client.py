@@ -86,7 +86,7 @@ class TravelPayoutsClient:
 
         def airports_by_term_generator(data: dict, term_str: str):
             for airport in data:
-                if airport['name'] and airport['name'].lower().startswith(term_str):
+                if airport['name'] and airport['name'].lower().startswith(term_str.lower()):
                     yield airport
 
         return list(islice(airports_by_term_generator(ap_data, term), settings.AIRPORTS_BY_TERM_COUNT))
