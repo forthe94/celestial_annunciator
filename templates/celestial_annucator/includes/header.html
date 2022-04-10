@@ -12,7 +12,7 @@
         <p>
             {% if user.is_authenticated %}
                 <a href="{% url 'auth:edit' %}">
-                    {{ user.username|default:"User"|capfirst }}
+                    {{ user.first_name|default:"User"|capfirst }}
                 </a>
             {% endif %}
         </p>
