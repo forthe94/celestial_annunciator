@@ -24,6 +24,5 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', index, name="index"),
-    path('registration/', registration, name="registration"),
     path('airports_by_term/', celestial_annucator.views.get_airports_by_term)
 ]
