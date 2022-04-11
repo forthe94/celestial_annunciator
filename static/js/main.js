@@ -9,6 +9,7 @@ const dataForm = {}
 let timer;
 
 window.onload = function () {
+    let arrayCity = '';
     const selectAllInputs = document.querySelectorAll('div > input');
     const inputSubmit = document.getElementById('formSearch');
 
@@ -19,35 +20,71 @@ window.onload = function () {
         item.addEventListener('input', (e) => handlerInput(e));
     })
     inputSubmit.addEventListener('submit', (e) => handlerSubmit(e));
-}
 
 // обработчик ввода данных из input
-const handlerInput = (e) => {
-    dataForm[e.target.name] = e.target.value;
-}
+    const handlerInput = (e) => {
+        if(e.target.type === 'text'){
+            console.log(e.target.getAttribute('code'));
+            dataForm[e.target.name] = e.target.getAttribute('code');
+        }
+        else
+            dataForm[e.target.name] = e.target.value;
+        console.log(dataForm)
+    }
 
 // обработка input type text
-const handlerSelectInput = (e) => {
-    const data = {};
-    const url = `${document.location.origin}/airports_by_term`;
-    const nameInput = e.target.name;
-    clearTimeout(timer);
-    data['term'] = e.target.value;
-    // отправляем данные методом get
+    const handlerSelectInput = (e) => {
+        const data = {};
+        const url = `${document.location.origin}/airports_by_term`;
+        const nameInput = e.target.name;
+        clearTimeout(timer);
+        data['term'] = e.target.value;
+        // отправляем данные методом get
 
-    timer = setTimeout(() => {
-        const request = dataProvider.get(url, data);
-        request
-            .then(res => console.log(res))
-    }, 2000)
-}
+        timer = setTimeout(() => {
+            const request = dataProvider.get(url, data);
+            request
+                .then(res => {
+                    contextMenuInput(e, res);
+                })
+        }, 1500)
+    }
 
 // обработчик отправки данных из формы
-const handlerSubmit = (e) => {
-    e.preventDefault()
-    clearTimeout(timer);
-    const url = document.location.origin;
-    const request = dataProvider.get(url, dataForm);
-    request
-        .then(res => console.log(res))
+    const handlerSubmit = (e) => {
+        e.preventDefault()
+        clearTimeout(timer);
+        const url = `${document.location.origin}/flight_search`;
+        const request = dataProvider.get(url, dataForm);
+        request
+            .then(res => console.log(res))
+    }
+
+// Формирование контекстного меню
+    const contextMenuInput = (e, res) => {
+        let contextList = "";
+        let contexMenu = "";
+
+        const divContextMenu = document.getElementById(e.target.name);
+        if (res.length) {
+            res.forEach(i => {
+                contextList += `<li code=${i['code']}>${i['name']}</li>`;
+            })
+            contexMenu = `<ul>${contextList}</ul>`;
+            divContextMenu.innerHTML = contexMenu;
+            let liList = document.querySelectorAll("li[code]")
+            liList.forEach(i => i.addEventListener('click', (event) => handlerSelectContextMenu(e, event.target)))
+        }
+        if (res.length === 1) {
+            let liItem = document.querySelector("li[code]");
+            handlerSelectContextMenu(e, liItem);
+        }
+    }
+
+// обработчик выбора вариантов из меню
+    const handlerSelectContextMenu = (e, item) => {
+        e.target.value = item.innerHTML;
+        e.target.setAttribute("code", item.getAttribute('code'));
+        dataForm[e.target.name] = item.getAttribute('code');
+    }
 }
