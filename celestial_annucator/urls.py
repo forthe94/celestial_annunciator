@@ -24,5 +24,6 @@ urlpatterns = [
 
     path('admin/', admin.site.urls),
     path('', index, name="index"),
-    path('airports_by_term/', celestial_annucator.views.get_airports_by_term)
+    path('airports_by_term/', celestial_annucator.views.get_airports_by_term),
+    path('flight_search/', celestial_annucator.views.flights_search)
 ]
