@@ -13,6 +13,9 @@ window.onload = function () {
     const selectAllInputs = document.querySelectorAll('div > input');
     const inputSubmit = document.getElementById('formSearch');
 
+    // вешаем проверку на нажатие в не области контестного меню, чтобы его отключить
+    document.querySelector('body').addEventListener('click', (e) => checkingContextMenuClick(e));
+
     // добавляем обработчик событий на input
     selectAllInputs.forEach(item => {
         if (item.name === listeningInputs[item.name])
@@ -21,18 +24,16 @@ window.onload = function () {
     })
     inputSubmit.addEventListener('submit', (e) => handlerSubmit(e));
 
-// обработчик ввода данных из input
+    // обработчик ввода данных из input
     const handlerInput = (e) => {
         if(e.target.type === 'text'){
-            console.log(e.target.getAttribute('code'));
             dataForm[e.target.name] = e.target.getAttribute('code');
         }
         else
             dataForm[e.target.name] = e.target.value;
-        console.log(dataForm)
     }
 
-// обработка input type text
+    // обработка input type text
     const handlerSelectInput = (e) => {
         const data = {};
         const url = `${document.location.origin}/airports_by_term`;
@@ -46,11 +47,13 @@ window.onload = function () {
             request
                 .then(res => {
                     contextMenuInput(e, res);
+                    if(res.length)
+                        document.getElementById(e.target.name).style.display = "flex"
                 })
         }, 1500)
     }
 
-// обработчик отправки данных из формы
+    // обработчик отправки данных из формы
     const handlerSubmit = (e) => {
         e.preventDefault()
         clearTimeout(timer);
@@ -60,7 +63,7 @@ window.onload = function () {
             .then(res => console.log(res))
     }
 
-// Формирование контекстного меню
+    // Формирование контекстного меню
     const contextMenuInput = (e, res) => {
         let contextList = "";
         let contexMenu = "";
@@ -81,10 +84,18 @@ window.onload = function () {
         }
     }
 
-// обработчик выбора вариантов из меню
+    // обработчик выбора вариантов из меню
     const handlerSelectContextMenu = (e, item) => {
         e.target.value = item.innerHTML;
         e.target.setAttribute("code", item.getAttribute('code'));
         dataForm[e.target.name] = item.getAttribute('code');
+
+        document.getElementById(e.target.name).style.display = "none"
+    }
+
+    // отключаем все контекстные меню
+    const checkingContextMenuClick = (e) => {
+        for( let i in listeningInputs)
+            document.getElementById(i).style.display = "none"
     }
 }
