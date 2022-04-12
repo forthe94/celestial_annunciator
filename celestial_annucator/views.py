@@ -23,11 +23,12 @@ def get_airports_by_term(request: wsgi.WSGIRequest):
 
 
 def flights_search(request: wsgi.WSGIRequest):
+    request_params = request.GET
     params = {
-        'origin': request.GET['fromCity'],
-        'destination': request.GET['toCity'],
-        'departure_at': request.GET['dateStart'],
-        'return_at': request.GET['dateBack'],
+        'origin': request_params['fromCity'],
+        'destination': request_params['toCity'],
+        'departure_at': request_params['dateStart'],
+        'return_at': request_params.get('dateBack'),
     }
     client = TravelPayoutsClient()
     flights_data = client.prices_for_dates(**params)
