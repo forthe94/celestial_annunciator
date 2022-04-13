@@ -132,5 +132,7 @@ AUTH_USER_MODEL = 'authapp.User'
 
 TRAVELPAYOUTS_API_URL = 'https://api.travelpayouts.com/aviasales/v3/'
 TRAVELPAYOUTS_API_TOKEN = os.getenv('TRAVELPAYOUTS_API_TOKEN')
+AMADEUS_API_KEY = os.getenv('AMADEUS_API_KEY')
+AMADEUS_SECRET_KEY = os.getenv('AMADEUS_SECRET_KEY')
 AIRPORTS_BY_TERM_COUNT = 10
 AIRPORTS_DATA_URL = 'https://api.travelpayouts.com/data/ru/cities.json'

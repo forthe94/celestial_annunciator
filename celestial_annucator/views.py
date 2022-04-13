@@ -1,7 +1,7 @@
 from django.core.handlers import wsgi
 from django.http import JsonResponse
 from django.shortcuts import render
-
+from common.amadeus_client import AmadeusClient, ResponseError
 from common.travelpayouts_client import TravelPayoutsClient
 
 
@@ -25,12 +25,15 @@ def get_airports_by_term(request: wsgi.WSGIRequest):
 def flights_search(request: wsgi.WSGIRequest):
     request_params = request.GET
     params = {
-        'origin': request_params['fromCity'],
-        'destination': request_params['toCity'],
-        'departure_at': request_params['dateStart'],
-        'return_at': request_params.get('dateBack'),
+        'originLocationCode': request_params['fromCity'],
+        'destinationLocationCode': request_params['toCity'],
+        'departureDate': request_params['dateStart'],
+        'adults': 1,
+        'currencyCode': 'RUB'
     }
-    client = TravelPayoutsClient()
-    flights_data = client.prices_for_dates(**params)
-    print(flights_data)
-    return JsonResponse(flights_data, safe=False)
+    client = AmadeusClient()
+    try:
+        response = client.shopping.flight_offers_search.get(**params)
+    except ResponseError as error:
+        print(error)
+    return JsonResponse(response.result, safe=False)
