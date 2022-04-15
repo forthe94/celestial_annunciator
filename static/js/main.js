@@ -1,4 +1,5 @@
 import {dataProvider} from "./dataProvider.js";
+import {utilities} from "./utilities.js";
 
 const listeningInputs =
     {
@@ -7,11 +8,13 @@ const listeningInputs =
     };
 const dataForm = {}
 let timer;
+const secTimeOut = 1;
 
 window.onload = function () {
     let arrayCity = '';
     const selectAllInputs = document.querySelectorAll('div > input');
     const inputSubmit = document.getElementById('formSearch');
+    const outputSearch = document.getElementById('outputSearch')
 
     // вешаем проверку на нажатие в не области контестного меню, чтобы его отключить
     document.querySelector('body').addEventListener('click', (e) => checkingContextMenuClick(e));
@@ -50,7 +53,7 @@ window.onload = function () {
                     if(res.length)
                         document.getElementById(e.target.name).style.display = "flex"
                 })
-        }, 1500)
+        }, secTimeOut*1000)
     }
 
     // обработчик отправки данных из формы
@@ -60,7 +63,9 @@ window.onload = function () {
         const url = `${document.location.origin}/flight_search`;
         const request = dataProvider.get(url, dataForm);
         request
-            .then(res => console.log(res))
+            .then(res => {
+                outputSearch.innerHTML = utilities.listCard( res, 'listCard')
+            })
     }
 
     // Формирование контекстного меню

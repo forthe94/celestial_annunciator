@@ -1,0 +1,69 @@
+#outputSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listCard {
+    max-width: 860px;
+    background: rgb(0, 0, 0, 0.8);
+    color: white;
+    margin-top: 20px;
+
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.listCard:last-child {
+    margin-bottom: 20px;
+}
+
+.ticketCardContent {
+    height: 100%;
+    display: flex;
+    padding: 0 20px;
+}
+
+.listCard div div {
+    display: inline-block;
+}
+
+.ticketCardLeftColumn {
+    border-right: 1px solid white;
+    width: 10em;
+    padding-left: 20px;
+}
+
+.ticketCardLeftColumn, .ticketCardRightColumn {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.ticketCardRightColumn {
+    padding-left: 20px;
+}
+
+.ticketCardInformationFlight, .ticketCardCompany {
+    display: flex !important;
+}
+
+.ticketCardInformationFlight{
+    margin-top: 20px;
+}
+
+.ticketCardInformationFlight div:first-child {
+    text-align: end;
+}
+
+.ticketCardInformationFlight div:first-child, .ticketCardInformationFlight div:last-child{
+    flex: 1 0 5em;
+}
+
+.ticketCardCompany div:last-child {
+    text-align: end;
+}
+
+.ticketCardRoute div{
+    text-align: center !important;
+}

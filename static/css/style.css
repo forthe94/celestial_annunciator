@@ -18,10 +18,6 @@ body {
     min-height: 100vh;
     background: #00B2FF;
 
-    background-image: url("../img/background_main.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 }
 
 header {
@@ -36,9 +32,15 @@ header {
 }
 
 main {
+    height: calc(100vh - 500px);
     padding: 140px 60px 0px 60px;
     flex-grow: 1;
     width: auto;
+
+    background-image: url("../img/background_main.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 main div h2 {
@@ -123,7 +125,8 @@ footer p {
 }
 
 .search_content {
-    background: rgb(0, 0, 0, 0.5);
+    background: rgb(0, 0, 0, 0.8);
+    border-radius: 5px;
     color: white;
     width: auto;
     height: 200px;
