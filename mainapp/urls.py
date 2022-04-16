@@ -20,12 +20,10 @@ import mainapp.views as mainhapp
 
 router = DefaultRouter()
 
-router.register(r'user_requests', mainhapp.UserRequestViewSet, basename='user_requests')
-router.register(r'segments', mainhapp.SegmentViewSet, basename='segments')
+router.register(r'save_searchs', mainhapp.SaveSearchViewSet, basename='save_searchs')
 
 app_name = 'mainapp'
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),
-    path('history/', mainhapp.history, name='history'),
 ]

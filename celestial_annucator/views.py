@@ -1,11 +1,7 @@
-import json
 from pprint import pprint
-
-from django.core.handlers import wsgi
 from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework.decorators import api_view
-
 from celestial_annucator import cities_data, airports_data, airlines_data
 from common.amadeus_client import AmadeusClient, ResponseError
 from common.travelpayouts_client import TravelPayoutsClient
