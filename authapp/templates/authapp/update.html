@@ -1,0 +1,20 @@
+{% extends "celestial_annucator/base.html"%}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/registration.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block content%}
+<main>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <input type="submit" value="Сохранить">
+        </div>
+        <a href="/">На главную</a>
+    </form>
+</main>
+{% endblock %}

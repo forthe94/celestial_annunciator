@@ -15,17 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.conf import settings
-from django.conf.urls.static import static
+
+import celestial_annucator.views
 from celestial_annucator.views import index, registration
 
 urlpatterns = [
     path('auth/', include('authapp.urls', namespace='auth')),
-    path('admin/', admin.site.urls),
-    path('main/', include('mainapp.urls')),
-    path('', index, name="index"),
-    path('registration/', registration, name="registration"),
-]
 
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+    path('', index, name="index"),
+    path('airports_by_term/', celestial_annucator.views.get_airports_by_term),
+    path('flight_search/', celestial_annucator.views.flights_search)
+]
