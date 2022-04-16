@@ -1,3 +1,5 @@
 from django.contrib import admin
+from mainapp.models import SaveSearch, DBLog
 
-# Register your models here.
+admin.site.register(SaveSearch)
+admin.site.register(DBLog)
