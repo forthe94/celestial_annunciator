@@ -3,7 +3,7 @@ import pathlib
 
 import pytest
 
-from celestial_annucator.airports_data import load_airports_data
+from celestial_annucator.cities_data import load_cities_data
 
 
 @pytest.fixture
@@ -18,5 +18,5 @@ def airports_starts_with_data(resources):
 
 @pytest.fixture
 def airports_data():
-    load_airports_data()
+    load_cities_data()
 

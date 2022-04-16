@@ -5,7 +5,7 @@ import dataclasses
 from itertools import islice
 
 import requests
-from celestial_annucator import settings, airports_data
+from celestial_annucator import settings, cities_data
 
 
 @dataclasses.dataclass
@@ -82,7 +82,7 @@ class TravelPayoutsClient:
 
     @staticmethod
     def get_airports_by_term(term: str):
-        ap_data = airports_data.get_data()
+        ap_data = cities_data.get_data()
 
         def airports_by_term_generator(data: dict, term_str: str):
             for airport in data:

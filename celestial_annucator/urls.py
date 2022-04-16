@@ -22,7 +22,6 @@ from celestial_annucator.views import index, registration
 
 urlpatterns = [
     path('auth/', include('authapp.urls', namespace='auth')),
-
     path('admin/', admin.site.urls),
     path('main/', include('mainapp.urls')),
     path('', index, name="index"),

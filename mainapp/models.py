@@ -3,8 +3,8 @@ from django.contrib.auth.models import UserManager
 from authapp.models import User
 
 # History
-class SavedSearch(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователь")
+class UserRequest(models.Model):
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Пользователь")
     marker = models.CharField('Партнёрский маркер', max_length=255, null=True, blank=True)
     host = models.CharField('Хост', max_length=255, null=True, blank=True)
     user_ip = models.CharField('IP пользователя', max_length=255, null=True, blank=True)
@@ -14,7 +14,7 @@ class SavedSearch(models.Model):
     children = models.PositiveSmallIntegerField('Количество детей', null=True, blank=True, unique=True)
     infants = models.PositiveSmallIntegerField('Количество младенцев', null=True, blank=True, unique=True)
     know_english = models.CharField('Знание английского языка', max_length=255, null=True, blank=True, unique=True)
-    currency = models.CharField('Валюта', max_length=255, null=True, blank=True)
+    currency = models.CharField('Стоимость', max_length=255, null=True, blank=True)
     add_time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     objects = UserManager()
@@ -29,7 +29,7 @@ class SavedSearch(models.Model):
 
 # Segment
 class Segment(models.Model):
-    user_request = models.ForeignKey(SavedSearch, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Запрос")
+    user_request = models.ForeignKey(UserRequest, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Запрос")
     travel_date = models.DateField(null=True, blank=True, verbose_name='Дата отправления')
     origin = models.CharField('IATA-код пункта отправления', max_length=255, null=True, blank=True)
     destination = models.CharField('IATA-пункта назначения', max_length=255, null=True, blank=True)
