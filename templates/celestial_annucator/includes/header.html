@@ -1,33 +1,26 @@
 {% load static %}
 
 <header>
-    <div class="logo"><a href="/"><img src={% static "img/wing.svg" %}>
+    <div class="logo"><a href="/"><img src="{% static 'img/wing.svg' %}">
         <h1>FlyScanner</h1></a></div>
     <div class="menu">
-        <a href="/">Главная</a> /
-        <a href="/">Контакты</a> /
-        <a href="/">Что-то</a>
+        <ul class="menu-bar>">
+            <li><a href="/">Главная</a></li>
+            <li><a href="/">Контакты</a></li>
+        </ul>
     </div>
     <div class="login">
-        <p>
+        <ul class="login-bar">
             {% if user.is_authenticated %}
-                <a href="{% url 'auth:edit' %}">
-                    {{ user.first_name|default:"User"|capfirst }}
-                </a>
-            {% endif %}
-        </p>
-        /
-        <p>
-            {% if user.is_authenticated %}
-                <a href="{% url 'auth:logout' %}">Выход</a>
+                <li><a href="{% url 'auth:edit' %}">
+                        {{ user.email }} </a>
+                </li>
+                <li><a href="{% url 'auth:logout' %}">Выход</a></li>
+
             {% else %}
-                <a href="{% url 'auth:login' %}">Вход</a>
+                <li><a href="{% url 'auth:login' %}">Вход</a></li>
+                <li><a href="{% url 'auth:register' %}">Регистрация</a></li>
             {% endif %}
-        </p>
-        /
-        <p>
-            <a href="{% url 'auth:register' %}">Регистрация</a>
-        </p>
-        <img src={% static "img/Login.png" %}>
+        </ul>
     </div>
 </header>
