@@ -23,6 +23,7 @@
     height: 100%;
     display: flex;
     padding: 0 20px;
+    cursor: pointer;
 }
 
 .listCard div div {
@@ -35,16 +36,25 @@
     padding-left: 20px;
 }
 
-.ticketCardLeftColumn, .ticketCardRightColumn {
+.ticketCardLeftColumn, .ticketCardCentralColumn, .ticketCardRightColumn {
     padding-top: 20px;
     padding-bottom: 20px;
 }
 
+.ticketCardCentralColumn {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
 .ticketCardRightColumn {
+    width: 10em;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid white;
     padding-left: 20px;
 }
 
-.ticketCardInformationFlight, .ticketCardCompany {
+.ticketCardInformationFlight, .ticketCardCompany, .ticketCardRightColumn {
     display: flex !important;
 }
 
@@ -66,4 +76,19 @@
 
 .ticketCardRoute div{
     text-align: center !important;
+}
+
+input[type="button"] {
+    width: auto;
+    padding: 5px 35px;
+    border: none;
+    background: #FF0000;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover{
+    background: darkred;
 }

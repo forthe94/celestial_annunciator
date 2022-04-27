@@ -8,7 +8,7 @@ from authapp.manager import UserManager
 class User(AbstractUser):
 
     email = models.EmailField('email address', unique=True, error_messages={
-            'unique': "A user with that email already exists."})
+            'unique': "Данный адресс уже используется."})
     username = None
     age = models.PositiveIntegerField('Возраст', null=True)
     avatar = models.ImageField(upload_to='avatars', blank=True)

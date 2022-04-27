@@ -19,7 +19,7 @@ export const utilities = {
                 <div class="ticketCardLeftColumn">
                     <div class="ticketCardPrice">${data.grandTotal} Р</div>
                 </div>
-                <div class="ticketCardRightColumn">
+                <div class="ticketCardCentralColumn">
                     <div class="ticketCardCompany">
                         <div>${data.validatingAirlineCodes}</div>
                         <div>Мест ${data.numberOfBookableSeats}</div>
@@ -37,6 +37,9 @@ export const utilities = {
                     </div>
              
                 </div>
+                <div class="ticketCardRightColumn">
+                    <div><input type="button" value="Купить"></div>
+                </div>
                
             </div>
         `;
@@ -48,12 +51,14 @@ export const utilities = {
         const {
             data
         } = args
-        console.log(args)
+        console.log(data)
         let list = ""
-        data.forEach(item => {
-            list += `<div class=${listCard}>${utilities.ticketCard(item)}</div>`
-        })
-        return list
+        if (Array.isArray(data)) {
+            data.forEach(item => {
+                list += `<div class=${listCard}>${utilities.ticketCard(item)}</div>`
+            })
+            return list
+        }
     },
     durationParser: (duration) => {
         let time = duration

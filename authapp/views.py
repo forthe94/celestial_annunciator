@@ -2,7 +2,8 @@ from django.contrib import auth
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from authapp.forms import UserLoginForm, AuthUserCreationForm, AuthUserChangeForm
+from authapp.forms import UserLoginForm, AuthUserCreationForm, \
+    AuthUserChangeForm
 
 
 def login(request):
@@ -31,7 +32,6 @@ def logout(request):
 
 
 def register(request):
-
     if request.method == 'POST':
         form = AuthUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -49,7 +49,8 @@ def register(request):
 
 def edit(request):
     if request.method == 'POST':
-        form = AuthUserChangeForm(request.POST, request.FILES, instance=request.user)
+        form = AuthUserChangeForm(request.POST, request.FILES,
+                                  instance=request.user)
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/')
