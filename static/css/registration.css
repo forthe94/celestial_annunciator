@@ -53,10 +53,19 @@ label {
 }
 
 input[type="submit"] {
-    margin-top: 20px;
+    margin: auto;
+    text-align: center;
+    display: block;
+    margin-top: 25px;
 }
 
 .div_login_submit {
     display: flex;
     justify-content: center;
+}
+
+.errorlist {
+    color: red;
+    list-style-type: none;
+    text-align: center;
 }

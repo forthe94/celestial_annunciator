@@ -48,12 +48,14 @@ export const utilities = {
         const {
             data
         } = args
-        console.log(args)
+        console.log(data)
         let list = ""
-        data.forEach(item => {
-            list += `<div class=${listCard}>${utilities.ticketCard(item)}</div>`
-        })
-        return list
+        if (Array.isArray(data)) {
+            data.forEach(item => {
+                list += `<div class=${listCard}>${utilities.ticketCard(item)}</div>`
+            })
+            return list
+        }
     },
     durationParser: (duration) => {
         let time = duration
