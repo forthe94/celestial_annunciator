@@ -1,5 +1,6 @@
 import {dataProvider} from "./dataProvider.js";
 import {utilities} from "./utilities.js";
+import {utilities_back} from "./utilities.js";
 
 const listeningInputs =
     {
@@ -64,7 +65,8 @@ window.onload = function () {
         const request = dataProvider.get(url, dataForm);
         request
             .then(res => {
-                outputSearch.innerHTML = utilities.listCard( res, 'listCard')
+                outputSearch_one.innerHTML = utilities.listCard( res, 'listCard')
+                outputSearch_two.innerHTML = utilities_back.listCard( res, 'listCard')
             })
     }
 

@@ -22,7 +22,7 @@ export const dataProvider = {
     post: (url, data) => {
         const request = new Request(`${url}/`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json;charset=utf-8'},
+            headers: {'Content-Type': 'application/json; charset=utf-8'},
             body: JSON.stringify(data)
         });
         return fetch(request)
