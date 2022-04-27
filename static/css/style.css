@@ -1,9 +1,4 @@
-{
-%
-load
-static
-%
-}
+{% load static %}
 
 * {
     margin: 0;
@@ -15,9 +10,8 @@ static
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     background: #00B2FF;
-
+    min-height: 100vh;
 }
 
 header {
@@ -32,8 +26,16 @@ header {
 }
 
 main {
-    height: calc(100vh - 500px);
-    padding: 140px 60px 0px 60px;
+    height: 100%;
+    padding: 0px;
+    flex-grow: 1;
+    width: auto;
+
+}
+
+.content {
+    height: 100%;
+    padding: 140px 60px 210px 60px;
     flex-grow: 1;
     width: auto;
 
@@ -41,8 +43,8 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-}
 
+}
 main div h2 {
     font-weight: 400;
     font-size: 24px;
@@ -57,6 +59,7 @@ footer {
     flex-shrink: 0;
     height: 50px;
     background: black;
+    position: relative;
 }
 
 footer p {
@@ -65,10 +68,9 @@ footer p {
 
 .logo {
     flex: 0 0 15em;
-    height: 50px;
+    height: 70px;
     font-style: italic;
     font-weight: 800;
-    font-size: 24px;
     line-height: 44px;
 }
 
@@ -87,10 +89,9 @@ footer p {
 }
 
 .menu {
-    padding-left: 60px;
     font-weight: 300;
-    font-size: 16px;
-    line-height: 17px;
+    font-size: 20px;
+    line-height: 50px;
 }
 
 .menu a, .menu a:visited {
@@ -98,16 +99,22 @@ footer p {
     color: white;
 }
 
-.login {
-    display: flex;
-    align-items: center;
-    flex: 0;
+.menu li {
+    display: inline;
+    padding: 10px
 }
 
-.login a {
+.login {
     display: flex;
-    align-items: center;
-    justify-content: end;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: right;
+}
+
+.login li {
+    display: inline;
+    padding: 10px
 }
 
 .login a:hover, .menu a:hover {
@@ -137,10 +144,11 @@ footer p {
     display: flex;
     align-items: center;
     padding-top: 50px;
+
 }
 
 .search_form div {
-    padding-right: 20px;
+    padding-right: 40px;
     display: flex;
     flex-direction: column;
 }

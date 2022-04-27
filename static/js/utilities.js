@@ -5,10 +5,10 @@ export const utilities = {
             id: item.id,
             validatingAirlineCodes: item.validatingAirlineCodes[0],
             duration: utilities.durationParser(item.itineraries[0].duration),
-            segmentsLength: item.itineraries[0].segments.length,
+            segmentsLength: item.itineraries[0].segments.length-1,
             segments: item.itineraries[0].segments,
             startTime: utilities.getStartTime(item.itineraries[0].segments),
-            endTime: utilities.getStartTime(item.itineraries[0].segments),
+            endTime: utilities.getEndTime(item.itineraries[0].segments),
             numberOfBookableSeats: item.numberOfBookableSeats,
             total: item.price.total,
             grandTotal: item.price.grandTotal,
@@ -46,7 +46,7 @@ export const utilities = {
     },
     listCard: (args, listCard) => {
         const {
-            data,
+            data
         } = args
         console.log(args)
         let list = ""
@@ -70,10 +70,6 @@ export const utilities = {
         return utilities.getDateTime(segments[0].departure.at)
     },
     getEndTime(segments) {
-        let dateTime = '';
-        segments.forEach(item => {
-            dateTime = utilities.getDateTime(item.arrival.at);
-        })
-        return dateTime;
+        return utilities.getDateTime(segments[0].arrival.at);
     }
 }
