@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authapp',
     'celestial_annucator.app_config.MyAppConfig'
+    'mainapp'
 ]
 
 MIDDLEWARE = [
@@ -107,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ru-RU'
 
 TIME_ZONE = 'UTC'
 
@@ -118,10 +119,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -130,6 +136,42 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'authapp.User'
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': "%(asctime)s - [%(levelname)s] -  %(name)s - (%(filename)s).%(funcName)s(%(lineno)d) - %(message)s"
+        },
+    },
+    'handlers': {
+        'log_db': {
+            'level': 'INFO',
+            'class': 'mainapp.handlers.DBHandler',
+            'model': 'mainapp.models.DBLog',
+            'formatter': 'verbose',
+        },
+        # 'file': {
+                #     'level': 'INFO',
+                #     'class': 'logging.FileHandler',
+                #     'formatter': 'verbose',
+                #     'filename': os.path.join(BASE_DIR, 'requests.log'),
+                #     'backupCount': 1,
+                #     'maxBytes': 5242880,
+                # },
+    },
+    'loggers': {
+        'db_logger': {
+            'level': 'INFO',
+            'handlers': ['log_db']
+        },
+        # 'django.request': {
+                #     'handlers': ['file'],
+                #     'level': 'INFO',
+                #     'propagate': True,
+                # }
+    }
+}
 TRAVELPAYOUTS_API_URL = 'https://api.travelpayouts.com/aviasales/v3/'
 TRAVELPAYOUTS_API_TOKEN = os.getenv('TRAVELPAYOUTS_API_TOKEN')
 AMADEUS_API_KEY = os.getenv('AMADEUS_API_KEY')
