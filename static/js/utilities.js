@@ -1,3 +1,5 @@
+
+
 export const utilities = {
     // формируем карточку билета
     ticketCard: (item) => {
@@ -5,7 +7,7 @@ export const utilities = {
             id: item.id,
             validatingAirlineCodes: item.validatingAirlineCodes[0],
             duration: utilities.durationParser(item.itineraries[0].duration),
-            segmentsLength: item.itineraries[0].segments.length-1,
+            segmentsLength: item.itineraries[0].segments.length - 1,
             segments: item.itineraries[0].segments,
             startTime: utilities.getStartTime(item.itineraries[0].segments),
             endTime: utilities.getEndTime(item.itineraries[0].segments),
@@ -14,7 +16,7 @@ export const utilities = {
             grandTotal: item.price.grandTotal,
 
         }
-        let itemDiv = `
+        return `
             <div key=${item.id} class="ticketCardContent">
                 <div class="ticketCardLeftColumn">
                     <div class="ticketCardPrice">${data.grandTotal} Р</div>
@@ -38,20 +40,48 @@ export const utilities = {
              
                 </div>
                 <div class="ticketCardRightColumn">
-                    <div><input type="button" value="Купить"></div>
+                    <div>
+                        <img title="Сохранить запрос" type="saveRequest" key="${item.id}" src="static/img/bell.png">
+                        <input type="button" value="Купить">
+                    </div>
                 </div>
                
             </div>
         `;
         // numberOfBookableSeats - Количество мест для бронирования
+    },
+    dataCard: (item) => {
+        return {
+            id: item.id,
+            validatingAirlineCodes: item.validatingAirlineCodes[0],
+            duration: utilities.durationParser(item.itineraries[0].duration),
+            segmentsLength: item.itineraries[0].segments.length - 1,
+            segments: item.itineraries[0].segments,
+            startTime: utilities.getStartTime(item.itineraries[0].segments),
+            endTime: utilities.getEndTime(item.itineraries[0].segments),
+            numberOfBookableSeats: item.numberOfBookableSeats,
+            total: item.price.total,
+            grandTotal: item.price.grandTotal,
+        }
+    },
+    listData: (args) => {
+        const {
+            data
+        } = args
+        const itemData = {};
 
-        return itemDiv
+        if (Array.isArray(data)) {
+            data.forEach(item => {
+                itemData[item.id] = utilities.dataCard(item);
+            })
+            return itemData
+        }
     },
     listCard: (args, listCard) => {
         const {
             data
         } = args
-        console.log(data)
+
         let list = ""
         if (Array.isArray(data)) {
             data.forEach(item => {
