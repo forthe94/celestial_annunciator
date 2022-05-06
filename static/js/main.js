@@ -3,8 +3,8 @@ import {utilities} from "./utilities.js";
 
 const listeningInputs =
     {
-        fromCity: 'fromCity',
-        toCity: 'toCity'
+        originLocationCode: 'originLocationCode',
+        destinationLocationCode: 'destinationLocationCode'
     };
 const dataForm = {}
 let timer;
@@ -44,7 +44,6 @@ window.onload = function () {
         clearTimeout(timer);
         data['term'] = e.target.value;
         // отправляем данные методом get
-
         timer = setTimeout(() => {
             const request = dataProvider.get(url, data);
             request
