@@ -52,6 +52,14 @@
     align-items: center;
     border-left: 1px solid white;
     padding-left: 20px;
+    height: 100%;
+    text-align: end;
+}
+
+.ticketCardRightColumn img {
+    width: 20px;
+    height: 20px;
+    margin: 0 0 10px 0px;
 }
 
 .ticketCardInformationFlight, .ticketCardCompany, .ticketCardRightColumn {

@@ -24,13 +24,10 @@ def get_airports_by_term(request: wsgi.WSGIRequest):
 
 def flights_search(request: wsgi.WSGIRequest):
     request_params = request.GET
-    params = {
-        'originLocationCode': request_params['fromCity'],
-        'destinationLocationCode': request_params['toCity'],
-        'departureDate': request_params['dateStart'],
-        'adults': 1,
-        'currencyCode': 'RUB'
-    }
+    params = {x: request_params.get(x) for x in request_params.keys()}
+    params['adults'] = 1
+    params['currencyCode'] = 'RUB'
+
     client = AmadeusClient()
     try:
         response = client.shopping.flight_offers_search.get(**params)

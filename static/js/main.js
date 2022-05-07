@@ -3,18 +3,20 @@ import {utilities} from "./utilities.js";
 
 const listeningInputs =
     {
-        fromCity: 'fromCity',
-        toCity: 'toCity'
+        originLocationCode: 'originLocationCode',
+        destinationLocationCode: 'destinationLocationCode'
     };
 const dataForm = {}
 let timer;
 const secTimeOut = 1;
+let dataCard = [];
 
 window.onload = function () {
     let arrayCity = '';
     const selectAllInputs = document.querySelectorAll('div > input');
     const inputSubmit = document.getElementById('formSearch');
-    const outputSearch = document.getElementById('outputSearch')
+    const outputSearch = document.getElementById('outputSearch');
+
 
     // вешаем проверку на нажатие в не области контестного меню, чтобы его отключить
     document.querySelector('body').addEventListener('click', (e) => checkingContextMenuClick(e));
@@ -44,7 +46,6 @@ window.onload = function () {
         clearTimeout(timer);
         data['term'] = e.target.value;
         // отправляем данные методом get
-
         timer = setTimeout(() => {
             const request = dataProvider.get(url, data);
             request
@@ -64,7 +65,24 @@ window.onload = function () {
         const request = dataProvider.get(url, dataForm);
         request
             .then(res => {
-                outputSearch.innerHTML = utilities.listCard( res, 'listCard')
+                //заносим данные в именнованный массив
+                dataCard  = utilities.listData(res);
+                //добавляем список билетов на сайт
+                outputSearch.innerHTML = utilities.listCard( res, 'listCard');
+                return true
+            })
+            .then(res => {
+                const imgSave = document.querySelectorAll("img[type='saveRequest']")
+                imgSave.forEach(item => {
+                    item.addEventListener("click", (e)=>{
+                        const url = `${document.location.origin}/save_search`;
+                        const itemData = dataCard[e.target.getAttribute('key')];
+                        const request = dataProvider.get(url,itemData);
+                        request.then(res => {
+                            console.log(res)
+                        })
+                    })
+                })
             })
     }
 
