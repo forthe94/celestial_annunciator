@@ -16,6 +16,7 @@ window.onload = function () {
     const selectAllInputs = document.querySelectorAll('div > input');
     const inputSubmit = document.getElementById('formSearch');
     const outputSearch = document.getElementById('outputSearch');
+    const searchIcon = document.getElementById('searchIcon');
 
 
     // вешаем проверку на нажатие в не области контестного меню, чтобы его отключить
@@ -61,6 +62,7 @@ window.onload = function () {
     const handlerSubmit = (e) => {
         e.preventDefault()
         clearTimeout(timer);
+        searchIcon.style.display = "block";
         const url = `${document.location.origin}/flight_search`;
         const request = dataProvider.get(url, dataForm);
         request
@@ -72,6 +74,7 @@ window.onload = function () {
                 return true
             })
             .then(res => {
+                searchIcon.style.display = "none";
                 const imgSave = document.querySelectorAll("img[type='saveRequest']")
                 imgSave.forEach(item => {
                     item.addEventListener("click", (e)=>{
@@ -84,6 +87,7 @@ window.onload = function () {
                     })
                 })
             })
+            .catch(err => console.log(err))
     }
 
     // Формирование контекстного меню

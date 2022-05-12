@@ -194,6 +194,7 @@ footer p {
 }
 
 input[type="submit"] {
+    cursor: pointer;
     width: auto;
     padding: 5px 35px;
     border: none;
@@ -201,6 +202,13 @@ input[type="submit"] {
     border-radius: 5px;
     color: white;
     font-size: 14px;
+}
+
+input[type="submit"]:hover {
+    background: #FF00027A;
+}
+input[type="submit"]:active {
+    background: #FF0000;
 }
 
 .context_menu {
@@ -229,4 +237,17 @@ input[type="submit"] {
     list-style-type: none;
     background: #00B2FF;
     color: white;
+}
+
+.searchIcon {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+.searchIcon img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
 }
