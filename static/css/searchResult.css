@@ -52,8 +52,17 @@
     align-items: center;
     border-left: 1px solid white;
     padding-left: 20px;
-    height: 100%;
+    height: auto;
     text-align: end;
+}
+
+.ticketCardRightColumnElement {
+    height: 100%;
+    display: inline-grid !important;
+}
+
+.ticketCardRightColumnElement input {
+    height: fit-content;
 }
 
 .ticketCardRightColumn img {
@@ -80,6 +89,18 @@
 
 .ticketCardCompany div:last-child {
     text-align: end;
+}
+
+.ticketCardCompanyItineraries {
+    border-top: white 1px solid;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.ticketCardCompanyItineraries:first-child {
+    border: none;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .ticketCardRoute div{
