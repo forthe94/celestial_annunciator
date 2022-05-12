@@ -1,8 +1,8 @@
 from django.core.handlers import wsgi
 from django.http import JsonResponse
 from django.shortcuts import render
-from common.amadeus_client import AmadeusClient, ResponseError
 from common.travelpayouts_client import TravelPayoutsClient
+from common.search import get_search
 
 
 def index(request):
@@ -27,10 +27,4 @@ def flights_search(request: wsgi.WSGIRequest):
     params = {x: request_params.get(x) for x in request_params.keys()}
     params['adults'] = 1
     params['currencyCode'] = 'RUB'
-
-    client = AmadeusClient()
-    try:
-        response = client.shopping.flight_offers_search.get(**params)
-    except ResponseError as error:
-        print(error)
-    return JsonResponse(response.result, safe=False)
+    return get_search(params)
