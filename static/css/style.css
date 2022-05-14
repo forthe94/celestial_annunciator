@@ -180,7 +180,7 @@ footer p {
     display: block;
 }
 
-.search_form_submit, .search_form_text, .search_form_date, .search_form_number, .search_form_btn_options {
+.search_form_submit, .search_form_text, .search_form_date, .search_form_number, .search_form_btn_options, .search_form_select {
     margin-top: 20px;
 }
 
