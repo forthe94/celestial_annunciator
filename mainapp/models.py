@@ -1,6 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import UserManager
 from authapp.models import User
+
 
 # DB logs
 class DBLog(models.Model):
@@ -11,7 +11,6 @@ class DBLog(models.Model):
     func_name = models.CharField(max_length=255)
     lineno = models.CharField(max_length=255)
 
-    objects = UserManager()
 
     class Meta:
         ordering = ['-time']
@@ -21,18 +20,22 @@ class DBLog(models.Model):
     def __str__(self):
         return f'{self.message}'
 
+
 # History
 class SaveSearch(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователь")
-    origin_location_code = models.CharField('originLocationCode', max_length=255)
-    destination_location_code = models.CharField('destinationLocationCode', max_length=255)
-    departure_date_start = models.DateField('departureDateStart')
-    departure_date_back = models.DateField('departureDateBack')
-    adults = models.PositiveSmallIntegerField('adults')
-    currency_code = models.CharField('currencyCode', max_length=255)
+    origin_location_code = models.CharField('originLocationCode', max_length=64)
+    destination_location_code = models.CharField('destinationLocationCode', max_length=64)
+    departureDate = models.DateField('departureDate')
+    returnDate = models.DateField('returnDate')
+    adults = models.PositiveSmallIntegerField('adults', default=1)
+    children = models.PositiveSmallIntegerField('children')
+    travelClass = models.CharField('travelClass', max_length=255)
+    currency_code = models.CharField('currencyCode', max_length=64, default='RUB')
+    includedAirlineCodes = models.CharField('includedAirlineCodes', max_length=64)
+    nonStop = models.CharField('nonStop', max_length=64, default=False)
     add_time = models.DateTimeField('add_time', auto_now_add=True, null=True, blank=True)
 
-    objects = UserManager()
 
     class Meta:
         ordering = ['-add_time']
