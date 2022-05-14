@@ -12,39 +12,93 @@
 {% block content %}
 <main>
     <div class="content">
-    <div class="search_content">
-        <h2>Укажите маршрут, чтобы найти дешевые авиабилеты</h2>
-        {% csrf_token %}
-        <form class="search_form" id="formSearch">
-            <div class="search_form_text">
-                <label>Откуда</label>
-                <input code ="" type="text" placeholder="Москва" name="originLocationCode" autocomplete="off">
-                <div class="context_menu">
-                    <div id="originLocationCode"></div>
+        <div class="search_content">
+            <h2>Куда вы хотите отправиться ?</h2>
+            {% csrf_token %}
+            <form class="" id="formSearch">
+                <div class="search_form_position">
+                <div class="search_form">
+                    <div class="search_form_text">
+                        <label>Откуда</label>
+                        <input code ="" type="text" placeholder="Москва" name="originLocationCode" autocomplete="off">
+                        <div class="context_menu">
+                            <div id="originLocationCode"></div>
+                        </div>
+                    </div>
+                    <div class="search_form_text">
+                        <label>Куда</label>
+                        <input code ="" type="text" placeholder="Владивосток" name="destinationLocationCode" autocomplete="off">
+                        <div class="context_menu">
+                            <div id="destinationLocationCode"></div>
+                        </div>
+                    </div>
+                    <div class="search_form_date">
+                        <label>Дата вылета</label>
+                        <input type="date" name="departureDate">
+                    </div>
+                    <div class="search_form_date">
+                        <label>Обратно</label>
+                        <input type="date" name="returnDate">
+                    </div>
+                    <div class="search_form_number">
+                        <label>Взрослые биллеты</label>
+                        <input title="Колличество взрослых билетов от 12лет и старше" code ="" type="number" value="1" name="adults" autocomplete="off" min="1" max="99" maxlength="2">
+                    </div>
+                    <div class="search_form_btn_options">
+                        <label>&nbsp;</label>
+                        <img id="search_option" code ="" type="image" src="/static/img/search.png">
+                    </div>
+
+                    <div class="search_form_submit">
+                        <div>
+                            <input type="submit" value="Найти авиабилет">
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="search_form_text">
-                <label>Куда</label>
-                <input code ="" type="text" placeholder="Владивосток" name="destinationLocationCode" autocomplete="off">
-                <div class="context_menu">
-                    <div id="destinationLocationCode"></div>
+                <hr>
                 </div>
-            </div>
-            <div class="search_form_date">
-                <label>Дата вылета</label>
-                <input type="date" name="departureDate">
-            </div>
-            <div class="search_form_date">
-                <label>Обратно</label>
-                <input type="date" name="returnDate">
-            </div>
-            <div class="search_form_submit">
-                <div>
-                    <input type="submit" value="Найти авиабилет">
+                <div id="form_options" class="search_form search_form_options">
+
+                    <div class="search_form_number">
+                        <label>Детские биллеты</label>
+                        <input title="Колличество детских билетов старше 2 лет и младше 12 лет" code ="" type="number" value="0" name="children" autocomplete="off" min="0" max="99" maxlength="2">
+                    </div>
+
+                    <div class="search_form_number">
+                        <label>Младенцы</label>
+                        <input title="Колличество детских билетов младше 2 лет" code ="" type="number" value="0" name="infants" autocomplete="off" min="0" max="99" maxlength="2">
+                    </div>
+
+                    <div class="search_form_number">
+                        <label>Макс. цена</label>
+                        <input code ="" type="number" value="0" name="maxPrice" autocomplete="off" min="0" >
+                    </div>
+
+                    <div class="search_form_select">
+                        <label>Класс</label>
+                        <select name="travelClass">
+                            <option selected value="ECONOMY">Эконом</option>
+                            <option value="PREMIUM_ECONOMY">Премиум</option>
+                            <option value="BUSINESS">Бизнес</option>
+                            <option value="FIRST">Первый</option>
+                        </select>
+                    </div>
+
+                    <div class="search_form_select">
+                        <label>Без пересадок</label>
+                        <select name="nonStop">
+                            <option selected value="false">Нет</option>
+                            <option value="true">Да</option>
+                        </select>
+                    </div>
+
+
+
+
                 </div>
-            </div>
-        </form>
-    </div>
+
+            </form>
+        </div>
     </div>
     <div id="outputSearch"></div>
     <div id="searchIcon" class="searchIcon"><img src="/static/img/ticket_search.gif"></div>

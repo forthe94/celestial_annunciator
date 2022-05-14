@@ -25,6 +25,5 @@ def get_airports_by_term(request: wsgi.WSGIRequest):
 def flights_search(request: wsgi.WSGIRequest):
     request_params = request.GET
     params = {x: request_params.get(x) for x in request_params.keys()}
-    params['adults'] = 1
     params['currencyCode'] = 'RUB'
     return get_search(params)

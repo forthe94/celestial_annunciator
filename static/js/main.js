@@ -6,7 +6,7 @@ const listeningInputs =
         originLocationCode: 'originLocationCode',
         destinationLocationCode: 'destinationLocationCode'
     };
-const dataForm = {}
+const dataForm = {adults: 1}
 let timer;
 const secTimeOut = 1;
 let dataCard = [];
@@ -17,6 +17,7 @@ window.onload = function () {
     const inputSubmit = document.getElementById('formSearch');
     const outputSearch = document.getElementById('outputSearch');
     const searchIcon = document.getElementById('searchIcon');
+    const searchOptions = document.getElementById('search_option');
 
 
     // вешаем проверку на нажатие в не области контестного меню, чтобы его отключить
@@ -29,6 +30,9 @@ window.onload = function () {
         item.addEventListener('input', (e) => handlerInput(e));
     })
     inputSubmit.addEventListener('submit', (e) => handlerSubmit(e));
+
+    // Добавляем обработчик на кнопку дополнительный поиск
+    searchOptions.addEventListener('click', (e) => showSearchOptions(e));
 
     // обработчик ввода данных из input
     const handlerInput = (e) => {
@@ -124,5 +128,12 @@ window.onload = function () {
     const checkingContextMenuClick = (e) => {
         for( let i in listeningInputs)
             document.getElementById(i).style.display = "none"
+    }
+
+    // отображаем дополнительне меню поиска
+    const showSearchOptions = (e) => {
+        const el = document.getElementById("form_options");
+        if(el.classList.contains("margin_top_up")) el.classList.remove("margin_top_up");
+        else el.classList.add("margin_top_up");
     }
 }

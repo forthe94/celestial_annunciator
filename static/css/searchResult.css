@@ -107,7 +107,7 @@
     text-align: center !important;
 }
 
-input[type="button"] {
+.ticketCardRightColumnElement input[type="button"] {
     width: auto;
     padding: 5px 35px;
     border: none;
@@ -118,6 +118,6 @@ input[type="button"] {
     cursor: pointer;
 }
 
-input[type="button"]:hover{
+.ticketCardRightColumnElement input[type="button"]:hover{
     background: darkred;
 }
