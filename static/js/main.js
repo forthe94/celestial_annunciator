@@ -40,9 +40,6 @@ window.onload = function () {
 
     // обработчик ввода данных из input
     const handlerInput = (e) => {
-        console.log(e.target.getAttribute("kyeval"))
-        console.log(e.target.value)
-        console.log(dataForm)
         if(e.target.getAttribute("kyeval")) dataForm[e.target.getAttribute("kyeval")] = e.target.value;
         else if(e.target.type === 'text'){
             dataForm[e.target.name] = e.target.getAttribute('code');
