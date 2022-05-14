@@ -14,6 +14,7 @@ let dataCard = [];
 window.onload = function () {
     let arrayCity = '';
     const selectAllInputs = document.querySelectorAll('div > input');
+    const selectAllSelects = document.querySelectorAll('select');
     const inputSubmit = document.getElementById('formSearch');
     const outputSearch = document.getElementById('outputSearch');
     const searchIcon = document.getElementById('searchIcon');
@@ -29,6 +30,9 @@ window.onload = function () {
             item.addEventListener('input', (e) => handlerSelectInput(e));
         item.addEventListener('input', (e) => handlerInput(e));
     })
+    selectAllSelects.forEach(item => {
+        item.addEventListener('click', (e) => handlerInput(e));
+    })
     inputSubmit.addEventListener('submit', (e) => handlerSubmit(e));
 
     // Добавляем обработчик на кнопку дополнительный поиск
@@ -36,7 +40,11 @@ window.onload = function () {
 
     // обработчик ввода данных из input
     const handlerInput = (e) => {
-        if(e.target.type === 'text'){
+        console.log(e.target.getAttribute("kyeval"))
+        console.log(e.target.value)
+        console.log(dataForm)
+        if(e.target.getAttribute("kyeval")) dataForm[e.target.getAttribute("kyeval")] = e.target.value;
+        else if(e.target.type === 'text'){
             dataForm[e.target.name] = e.target.getAttribute('code');
         }
         else
