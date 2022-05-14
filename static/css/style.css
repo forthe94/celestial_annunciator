@@ -34,6 +34,7 @@ main {
 }
 
 .content {
+    position: relative;
     height: 100%;
     padding: 140px 60px 210px 60px;
     flex-grow: 1;
@@ -67,7 +68,7 @@ footer p {
 }
 
 .logo {
-    flex: 0 0 15em;
+    flex: 0 0 18em;
     height: 70px;
     font-style: italic;
     font-weight: 800;
@@ -136,15 +137,24 @@ footer p {
     border-radius: 5px;
     color: white;
     width: auto;
-    height: 200px;
     padding: 60px;
+}
+
+.search_content hr {
+    margin-top: 20px;
+}
+
+.search_form_position {
+    position: relative;
+    z-index: 100;
 }
 
 .search_form {
     display: flex;
     align-items: center;
     padding-top: 50px;
-
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .search_form div {
@@ -153,8 +163,8 @@ footer p {
     flex-direction: column;
 }
 
-.search_form_text {
-    flex: 0 0 15em;
+.search_form_text, .search_form_number, .search_form_select, .search_form_btn_options {
+    flex: 0 0 0;
 }
 
 .search_form_date {
@@ -170,9 +180,14 @@ footer p {
     display: block;
 }
 
+.search_form_submit, .search_form_text, .search_form_date, .search_form_number, .search_form_btn_options, .search_form_select {
+    margin-top: 20px;
+}
+
 .search_form label {
     padding-left: 5px;
     font-size: 14px;
+    width: fit-content;
 }
 
 .search_form input[type="text"] {
@@ -193,6 +208,35 @@ footer p {
     margin-top: 5px;
 }
 
+.search_form input[type="number"] {
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    height: 32px;
+    width: 125px;
+    margin-top: 5px;
+}
+
+.search_form select {
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    height: 32px;
+    width: 125px;
+    margin-top: 5px;
+}
+
+.search_form_options {
+    margin-top: -190px;
+    position: absolute;
+    z-index: 10;
+    background: #00B2FF;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    justify-content: center;
+    display:none;
+}
+
 input[type="submit"] {
     cursor: pointer;
     width: auto;
@@ -209,6 +253,16 @@ input[type="submit"]:hover {
 }
 input[type="submit"]:active {
     background: #FF0000;
+}
+
+.search_form_btn_options img {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+    margin-top: 5px;
+    background: #00B2FF;
+    border-radius: 25%;
+    padding: 5px;
 }
 
 .context_menu {
@@ -250,4 +304,10 @@ input[type="submit"]:active {
     height: 70px;
     width: 70px;
     border-radius: 50%;
+}
+
+.margin_top_up {
+    margin-top: 0px;
+    box-shadow: 0px 1px 10px black;
+    display:flex;
 }
