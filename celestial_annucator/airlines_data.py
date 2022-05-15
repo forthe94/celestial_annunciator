@@ -6,7 +6,7 @@ airlines_data = None
 
 def load_airlines_data():
     global airlines_data
-    resp = requests.get(settings.CITIES_DATA_URL)
+    resp = requests.get(settings.AIRLINES_DATA_URL)
 
     if resp.status_code != 200:
         raise Exception('Failed to load airports data')

@@ -10,4 +10,3 @@ class SaveSearchViewSet(viewsets.ModelViewSet):
     serializer_class = SaveSearchSerializer
     parser_classes = [JSONParser, FormParser, MultiPartParser]
     permission_classes = [IsAuthenticated]
-

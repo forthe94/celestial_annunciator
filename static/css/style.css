@@ -1,9 +1,4 @@
-{
-%
-load
-static
-%
-}
+{% load static %}
 
 * {
     margin: 0;
@@ -15,13 +10,8 @@ static
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
     background: #00B2FF;
-
-    background-image: url("../img/background_main.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    min-height: 100vh;
 }
 
 header {
@@ -36,11 +26,26 @@ header {
 }
 
 main {
-    padding: 140px 60px 0px 60px;
+    height: 100%;
+    padding: 0px;
     flex-grow: 1;
     width: auto;
+
 }
 
+.content {
+    position: relative;
+    height: 100%;
+    padding: 140px 60px 210px 60px;
+    flex-grow: 1;
+    width: auto;
+
+    background-image: url("../img/background_main.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+}
 main div h2 {
     font-weight: 400;
     font-size: 24px;
@@ -55,6 +60,7 @@ footer {
     flex-shrink: 0;
     height: 50px;
     background: black;
+    position: relative;
 }
 
 footer p {
@@ -62,11 +68,10 @@ footer p {
 }
 
 .logo {
-    flex: 0 0 15em;
-    height: 50px;
+    flex: 0 0 18em;
+    height: 70px;
     font-style: italic;
     font-weight: 800;
-    font-size: 24px;
     line-height: 44px;
 }
 
@@ -85,10 +90,9 @@ footer p {
 }
 
 .menu {
-    padding-left: 60px;
     font-weight: 300;
-    font-size: 16px;
-    line-height: 17px;
+    font-size: 20px;
+    line-height: 50px;
 }
 
 .menu a, .menu a:visited {
@@ -96,16 +100,22 @@ footer p {
     color: white;
 }
 
-.login {
-    display: flex;
-    align-items: center;
-    flex: 0;
+.menu li {
+    display: inline;
+    padding: 10px
 }
 
-.login a {
+.login {
     display: flex;
-    align-items: center;
-    justify-content: end;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 50px;
+    text-align: right;
+}
+
+.login li {
+    display: inline;
+    padding: 10px
 }
 
 .login a:hover, .menu a:hover {
@@ -123,27 +133,38 @@ footer p {
 }
 
 .search_content {
-    background: rgb(0, 0, 0, 0.5);
+    background: rgb(0, 0, 0, 0.8);
+    border-radius: 5px;
     color: white;
     width: auto;
-    height: 200px;
     padding: 60px;
+}
+
+.search_content hr {
+    margin-top: 20px;
+}
+
+.search_form_position {
+    position: relative;
+    z-index: 100;
 }
 
 .search_form {
     display: flex;
     align-items: center;
     padding-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .search_form div {
-    padding-right: 20px;
+    padding-right: 40px;
     display: flex;
     flex-direction: column;
 }
 
-.search_form_text {
-    flex: 0 0 15em;
+.search_form_text, .search_form_number, .search_form_select, .search_form_btn_options {
+    flex: 0 0 0;
 }
 
 .search_form_date {
@@ -159,9 +180,14 @@ footer p {
     display: block;
 }
 
+.search_form_submit, .search_form_text, .search_form_date, .search_form_number, .search_form_btn_options, .search_form_select {
+    margin-top: 20px;
+}
+
 .search_form label {
     padding-left: 5px;
     font-size: 14px;
+    width: fit-content;
 }
 
 .search_form input[type="text"] {
@@ -182,7 +208,37 @@ footer p {
     margin-top: 5px;
 }
 
+.search_form input[type="number"] {
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    height: 32px;
+    width: 125px;
+    margin-top: 5px;
+}
+
+.search_form select {
+    padding: 0 10px;
+    border: none;
+    border-radius: 5px;
+    height: 32px;
+    width: 125px;
+    margin-top: 5px;
+}
+
+.search_form_options {
+    margin-top: -190px;
+    position: absolute;
+    z-index: 10;
+    background: #00B2FF;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    justify-content: center;
+    display:none;
+}
+
 input[type="submit"] {
+    cursor: pointer;
     width: auto;
     padding: 5px 35px;
     border: none;
@@ -190,6 +246,23 @@ input[type="submit"] {
     border-radius: 5px;
     color: white;
     font-size: 14px;
+}
+
+input[type="submit"]:hover {
+    background: #FF00027A;
+}
+input[type="submit"]:active {
+    background: #FF0000;
+}
+
+.search_form_btn_options img {
+    cursor: pointer;
+    width: 27px;
+    height: 27px;
+    margin-top: 5px;
+    background: #00B2FF;
+    border-radius: 25%;
+    padding: 5px;
 }
 
 .context_menu {
@@ -218,4 +291,23 @@ input[type="submit"] {
     list-style-type: none;
     background: #00B2FF;
     color: white;
+}
+
+.searchIcon {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+.searchIcon img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+.margin_top_up {
+    margin-top: 0px;
+    box-shadow: 0px 1px 10px black;
+    display:flex;
 }

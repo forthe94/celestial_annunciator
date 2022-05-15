@@ -1,0 +1,123 @@
+#outputSearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listCard {
+    max-width: 860px;
+    background: rgb(0, 0, 0, 0.8);
+    color: white;
+    margin-top: 20px;
+
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.listCard:last-child {
+    margin-bottom: 20px;
+}
+
+.ticketCardContent {
+    height: 100%;
+    display: flex;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.listCard div div {
+    display: inline-block;
+}
+
+.ticketCardLeftColumn {
+    border-right: 1px solid white;
+    width: 10em;
+    padding-left: 20px;
+}
+
+.ticketCardLeftColumn, .ticketCardCentralColumn, .ticketCardRightColumn {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.ticketCardCentralColumn {
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.ticketCardRightColumn {
+    width: 10em;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid white;
+    padding-left: 20px;
+    height: auto;
+    text-align: end;
+}
+
+.ticketCardRightColumnElement {
+    height: 100%;
+    display: inline-grid !important;
+}
+
+.ticketCardRightColumnElement input {
+    height: fit-content;
+}
+
+.ticketCardRightColumn img {
+    width: 20px;
+    height: 20px;
+    margin: 0 0 10px 0px;
+}
+
+.ticketCardInformationFlight, .ticketCardCompany, .ticketCardRightColumn {
+    display: flex !important;
+}
+
+.ticketCardInformationFlight{
+    margin-top: 20px;
+}
+
+.ticketCardInformationFlight div:first-child {
+    text-align: end;
+}
+
+.ticketCardInformationFlight div:first-child, .ticketCardInformationFlight div:last-child{
+    flex: 1 0 5em;
+}
+
+.ticketCardCompany div:last-child {
+    text-align: end;
+}
+
+.ticketCardCompanyItineraries {
+    border-top: white 1px solid;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+.ticketCardCompanyItineraries:first-child {
+    border: none;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.ticketCardRoute div{
+    text-align: center !important;
+}
+
+.ticketCardRightColumnElement input[type="button"] {
+    width: auto;
+    padding: 5px 35px;
+    border: none;
+    background: #FF0000;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.ticketCardRightColumnElement input[type="button"]:hover{
+    background: darkred;
+}
