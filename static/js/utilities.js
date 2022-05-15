@@ -66,29 +66,51 @@ export const utilities = {
 
      return itinerariesItem;
     },
-    dataCard: (item) => {
+    dataCard: (item, req) => {
+        const varReq = req;
+        if ('maxPrice' in varReq) {
+          delete varReq['maxPrice']
+        }
+        const route = [];
+
+        item.itineraries.forEach(i => {
+            const itemData = {
+            duration: i.duration,
+            flights: []
+            }
+            i.segments.forEach(t => {
+                const air = {
+                    arrival:{
+                        at: t.arrival.at,
+                        iataCode: t.arrival.iataCode
+                    },
+                    departure:{
+                        at: t.departure.at,
+                        iataCode: t.departure.iataCode
+                    }
+                }
+                itemData.flights.push(air)
+            })
+            route.push(itemData)
+        })
         return {
+            ...varReq,
             id: item.id,
             validatingAirlineCodes: item.validatingAirlineCodes[0],
-            duration: utilities.durationParser(item.itineraries[0].duration),
-            segmentsLength: item.itineraries[0].segments.length - 1,
-            segments: item.itineraries[0].segments,
-            startTime: utilities.getStartTime(item.itineraries[0].segments),
-            endTime: utilities.getEndTime(item.itineraries[0].segments),
-            numberOfBookableSeats: item.numberOfBookableSeats,
+            route: route,
             total: item.price.total,
             grandTotal: item.price.grandTotal,
         }
     },
-    listData: (args) => {
+    listData: (res, req) => {
         const {
             data
-        } = args
-        const itemData = {};
+        } = res
 
+        const itemData = {};
         if (Array.isArray(data)) {
             data.forEach(item => {
-                itemData[item.id] = utilities.dataCard(item);
+                itemData[item.id] = utilities.dataCard(item, req);
             })
             return itemData
         }

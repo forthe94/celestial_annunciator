@@ -6,7 +6,15 @@ const listeningInputs =
         originLocationCode: 'originLocationCode',
         destinationLocationCode: 'destinationLocationCode'
     };
-const dataForm = {adults: 1}
+
+const dataForm = {
+adults: 1,
+children: 0,
+infants: 0,
+travelClass: "ECONOMY",
+nonStop: false
+}
+
 let timer;
 const secTimeOut = 1;
 let dataCard = [];
@@ -77,7 +85,7 @@ window.onload = function () {
         request
             .then(res => {
                 //заносим данные в именнованный массив
-                dataCard  = utilities.listData(res);
+                dataCard  = utilities.listData(res, dataForm);
                 //добавляем список билетов на сайт
                 outputSearch.innerHTML = utilities.listCard( res, 'listCard');
                 return true
@@ -90,6 +98,7 @@ window.onload = function () {
                         const url = `${document.location.origin}/save_search`;
                         const itemData = dataCard[e.target.getAttribute('key')];
                         const request = dataProvider.get(url,itemData);
+                        console.log(itemData)
                         request.then(res => {
                             console.log(res)
                         })
