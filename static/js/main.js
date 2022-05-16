@@ -95,10 +95,9 @@ window.onload = function () {
                 const imgSave = document.querySelectorAll("img[type='saveRequest']")
                 imgSave.forEach(item => {
                     item.addEventListener("click", (e)=>{
-                        const url = `${document.location.origin}/save_search`;
+                        const url = `${document.location.origin}/mainapp/save_search`;
                         const itemData = dataCard[e.target.getAttribute('key')];
-                        const request = dataProvider.post(url,itemData, getCookie('csrftoken'));
-                        console.log(itemData)
+                        const request = dataProvider.post(url, itemData, getCookie('csrftoken'));
                         request.then(res => {
                             console.log(res)
                         })
