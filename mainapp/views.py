@@ -18,6 +18,7 @@ class SaveSearchViewSet(viewsets.ModelViewSet):
     parser_classes = [JSONParser, FormParser, MultiPartParser]
     permission_classes = [IsAuthenticated]
 
+
 @csrf_exempt
 def save_search(request):
     if request.method == 'POST':
@@ -27,6 +28,7 @@ def save_search(request):
             adults = json_data.get('adults')
             children = json_data.get('children')
             departure_date = json_data.get('departureDate')
+            origin_location_code = json_data.get('originLocationCode')
             if departure_date:
                 departure_date = datetime.strptime(departure_date, '%Y-%m-%d')
                 print(departure_date)
@@ -49,6 +51,7 @@ def save_search(request):
                 adults=adults,
                 children=children,
                 departureDate=departure_date,
+                origin_location_code=origin_location_code,
                 destination_location_code=destination_location_code,
                 returnDate=returnDate,
                 infants=infants,
