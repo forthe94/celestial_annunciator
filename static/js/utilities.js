@@ -25,7 +25,8 @@ export const utilities = {
                 <div class="ticketCardRightColumn">
                     <div class="ticketCardRightColumnElement">
                         <div>
-                            <img title="Сохранить запрос" type="saveRequest" key="${item.id}" src="static/img/bell.png">
+                            <img class="ticketSave" title="Сохранить запрос" type="saveRequest" key="${item.id}" src="static/img/bellOn.png">
+                            <img class="ticketSaveClicked disableItem" type="notActive" title="Запрос сохранен" key="${item.id}" src="static/img/bellOff.png">
                         </div>
                         <input type="button" value="Купить">
                     </div>

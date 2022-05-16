@@ -65,10 +65,15 @@
     height: fit-content;
 }
 
-.ticketCardRightColumn img {
+.ticketCardRightColumn .ticketSave, .ticketCardRightColumn .ticketSaveClicked {
     width: 20px;
     height: 20px;
     margin: 0 0 10px 0px;
+    transition: 0.5s;
+}
+.ticketCardRightColumn .ticketSave:hover {
+    transform: scale(1.5);
+    transition: 0.5s;
 }
 
 .ticketCardInformationFlight, .ticketCardCompany, .ticketCardRightColumn {
@@ -120,4 +125,8 @@
 
 .ticketCardRightColumnElement input[type="button"]:hover{
     background: darkred;
+}
+
+.disableItem{
+    display: none;
 }
