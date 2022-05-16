@@ -97,7 +97,7 @@ window.onload = function () {
                     item.addEventListener("click", (e)=>{
                         const url = `${document.location.origin}/save_search`;
                         const itemData = dataCard[e.target.getAttribute('key')];
-                        const request = dataProvider.get(url,itemData);
+                        const request = dataProvider.post(url,itemData, getCookie('csrftoken'));
                         console.log(itemData)
                         request.then(res => {
                             console.log(res)
@@ -149,5 +149,13 @@ window.onload = function () {
         const el = document.getElementById("form_options");
         if(el.classList.contains("margin_top_up")) el.classList.remove("margin_top_up");
         else el.classList.add("margin_top_up");
+    }
+
+    function getCookie (key) {
+        let match = document.cookie
+            .split('; ')
+            .find(row => row.startsWith(`${key}=`));
+
+        return match ? match.split('=')[1] : undefined;
     }
 }
