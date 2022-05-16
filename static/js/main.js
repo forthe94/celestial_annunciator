@@ -6,7 +6,15 @@ const listeningInputs =
         originLocationCode: 'originLocationCode',
         destinationLocationCode: 'destinationLocationCode'
     };
-const dataForm = {adults: 1}
+
+const dataForm = {
+adults: 1,
+children: 0,
+infants: 0,
+travelClass: "ECONOMY",
+nonStop: false
+}
+
 let timer;
 const secTimeOut = 1;
 let dataCard = [];
@@ -77,7 +85,7 @@ window.onload = function () {
         request
             .then(res => {
                 //заносим данные в именнованный массив
-                dataCard  = utilities.listData(res);
+                dataCard  = utilities.listData(res, dataForm);
                 //добавляем список билетов на сайт
                 outputSearch.innerHTML = utilities.listCard( res, 'listCard');
                 return true
@@ -87,9 +95,9 @@ window.onload = function () {
                 const imgSave = document.querySelectorAll("img[type='saveRequest']")
                 imgSave.forEach(item => {
                     item.addEventListener("click", (e)=>{
-                        const url = `${document.location.origin}/save_search`;
+                        const url = `${document.location.origin}/mainapp/save_search`;
                         const itemData = dataCard[e.target.getAttribute('key')];
-                        const request = dataProvider.get(url,itemData);
+                        const request = dataProvider.post(url, itemData, getCookie('csrftoken'));
                         request.then(res => {
                             console.log(res)
                         })
@@ -140,5 +148,13 @@ window.onload = function () {
         const el = document.getElementById("form_options");
         if(el.classList.contains("margin_top_up")) el.classList.remove("margin_top_up");
         else el.classList.add("margin_top_up");
+    }
+
+    function getCookie (key) {
+        let match = document.cookie
+            .split('; ')
+            .find(row => row.startsWith(`${key}=`));
+
+        return match ? match.split('=')[1] : undefined;
     }
 }

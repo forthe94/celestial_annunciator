@@ -19,10 +19,12 @@ export const dataProvider = {
                 return false
             });
     },
-    post: (url, data) => {
+    post: (url, data, key) => {
         const request = new Request(`${url}/`, {
             method: 'POST',
-            headers: {'Content-Type': 'application/json;charset=utf-8'},
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8',
+                'X-CSRF-TOKEN': key},
             body: JSON.stringify(data)
         });
         return fetch(request)

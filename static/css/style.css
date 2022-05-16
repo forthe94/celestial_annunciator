@@ -294,6 +294,7 @@ input[type="submit"]:active {
 }
 
 .searchIcon {
+    z-index: 1000;
     display: none;
     position: fixed;
     left: 50%;

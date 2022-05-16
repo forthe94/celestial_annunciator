@@ -24,9 +24,10 @@ from celestial_annucator.views import index, registration
 
 urlpatterns = [
     path('auth/', include('authapp.urls', namespace='auth')),
+    path('mainapp/', include('mainapp.urls', namespace='mainapp')),
 
     path('admin/', admin.site.urls),
     path('', index, name="index"),
     path('airports_by_term/', celestial_annucator.views.get_airports_by_term),
-    path('flight_search/', celestial_annucator.views.flights_search)
+    path('flight_search/', celestial_annucator.views.flights_search),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

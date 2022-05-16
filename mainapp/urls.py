@@ -25,4 +25,5 @@ app_name = 'mainapp'
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),
+    path('save_search/', mainhapp.save_search, name="save_search")
 ]
