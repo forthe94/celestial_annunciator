@@ -93,13 +93,22 @@ window.onload = function () {
             .then(res => {
                 searchIcon.style.display = "none";
                 const imgSave = document.querySelectorAll("img[type='saveRequest']")
+                const imgSaveDisable = document.querySelectorAll("img[type='notActive']")
                 imgSave.forEach(item => {
                     item.addEventListener("click", (e)=>{
                         const url = `${document.location.origin}/mainapp/save_search`;
                         const itemData = dataCard[e.target.getAttribute('key')];
                         const request = dataProvider.post(url, itemData, getCookie('csrftoken'));
                         request.then(res => {
-                            console.log(res)
+                            if(!res.auth) window.location.href = "/auth/login";
+                            else {
+                                imgSaveDisable.forEach(i => {
+                                    if(i.getAttribute('key') === e.target.getAttribute('key')){
+                                        i.classList.remove("disableItem");
+                                        e.target.classList.add("disableItem");
+                                    }
+                                })
+                            }
                         })
                     })
                 })
