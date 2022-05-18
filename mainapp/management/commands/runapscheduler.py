@@ -63,7 +63,7 @@ def query_survey():
                                 ):
                                     # Проверяем цену!
                                     if (float(data['price']['total']) != float(item.total)):
-                                        print(f"Цена изменилась! Старая {item.total}. Новая {data['price']['total']}")
+                                        print(f"Пользователь {item.user} Цена изменилась! Старая {item.total}. Новая {data['price']['total']}")
                                     else:
                                         print('Ok')
                                 else:
