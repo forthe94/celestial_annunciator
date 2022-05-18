@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path
 
 import authapp.views as authapp
+from mainapp.views import SaveSearchList, SaveSearchDelete
 
 
 app_name = 'authapp'
@@ -26,4 +27,6 @@ urlpatterns = [
     path('logout/', authapp.logout, name='logout'),
     path('register/', authapp.register, name='register'),
     path('edit/', authapp.edit, name='edit'),
+    path('profile/', SaveSearchList.as_view(), name='profile'),
+    path('item-delete/<int:pk>', SaveSearchDelete.as_view(), name='item_delete'),
 ]

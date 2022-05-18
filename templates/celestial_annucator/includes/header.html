@@ -12,7 +12,7 @@
     <div class="login">
         <ul class="login-bar">
             {% if user.is_authenticated %}
-                <li><a href="{% url 'auth:edit' %}">
+                <li><a href="{% url 'auth:profile' %}">
                         {{ user.email }} </a>
                 </li>
                 <li><a href="{% url 'auth:logout' %}">Выход</a></li>

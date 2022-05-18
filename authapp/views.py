@@ -62,3 +62,10 @@ def edit(request):
         'page_title': 'FlyScanner - Редактирование',
     }
     return render(request, 'authapp/update.html', context)
+
+
+def profile(request):
+    context = {
+        'title': 'FlyScanner - Вход'
+    }
+    return render(request, 'authapp/savesearch.html', context)

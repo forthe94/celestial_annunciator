@@ -1,0 +1,22 @@
+{% extends "authapp/base.html"%}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/profile.css' %}" rel="stylesheet" xmlns="http://www.w3.org/1999/html">
+{% endblock %}
+
+
+{% block content%}
+<main>
+     <div class="content_profile">
+		<div class="title">
+		<h2> Уверены, что хотите удалить?</h2>
+			<form action="{% url 'authapp:item_delete' object.pk %}" method="post">
+				{% csrf_token %}
+				<input class="button" type="submit" value="удалить">
+			</form>
+		</div>
+     </div>
+</main>
+
+{% endblock %}
