@@ -9,3 +9,12 @@ def get_search(params):
     except ResponseError as error:
         print(error)
     return JsonResponse(response.result, safe=False)
+
+
+def get_search_result(params):
+    client = AmadeusClient()
+    try:
+        response = client.shopping.flight_offers_search.get(**params)
+    except ResponseError as error:
+        print(error)
+    return response.result
