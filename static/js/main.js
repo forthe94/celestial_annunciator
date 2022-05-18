@@ -85,6 +85,7 @@ window.onload = function () {
         request
             .then(res => {
                 //заносим данные в именнованный массив
+                console.log(res)
                 dataCard  = utilities.listData(res, dataForm);
                 //добавляем список билетов на сайт
                 outputSearch.innerHTML = utilities.listCard( res, 'listCard');

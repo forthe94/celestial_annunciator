@@ -24,15 +24,15 @@ class DBLog(models.Model):
 # History
 class SaveSearch(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Пользователь")
-    origin_location_code = models.CharField('originLocationCode', max_length=64)
-    destination_location_code = models.CharField('destinationLocationCode', max_length=64)
+    originLocationCode = models.CharField('originLocationCode', max_length=64)
+    destinationLocationCode = models.CharField('destinationLocationCode', max_length=64)
     departureDate = models.DateField('departureDate')
     returnDate = models.DateField('returnDate', null=True, blank=True)
     adults = models.PositiveSmallIntegerField('adults', default=1)
     children = models.PositiveSmallIntegerField('children', null=True, blank=True)
     infants = models.PositiveSmallIntegerField('infants', null=True, blank=True)
     travelClass = models.CharField('travelClass', max_length=255)
-    currency_code = models.CharField('currencyCode', max_length=64, default='RUB')
+    currencyCode = models.CharField('currencyCode', max_length=64, default='RUB')
     validatingAirlineCodes = models.CharField('validatingAirlineCodes', max_length=64)
     nonStop = models.CharField('nonStop', max_length=64, default=False)
     total = models.DecimalField('total', max_digits=19, decimal_places=2)
