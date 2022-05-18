@@ -3,7 +3,9 @@ from datetime import datetime
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.views.generic import ListView, DeleteView
 from rest_framework import viewsets
+from django.urls import reverse_lazy
 from rest_framework.parsers import JSONParser, FormParser, MultiPartParser
 from rest_framework.permissions import IsAuthenticated
 
@@ -19,6 +21,20 @@ class SaveSearchViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
 
 
+class SaveSearchList(ListView):
+    model = SaveSearch
+    template_name = 'authapp/savesearch.html'
+
+
+    def get_queryset(self):
+        return SaveSearch.objects.filter(user=self.request.user)
+
+
+class SaveSearchDelete(DeleteView):
+    model = SaveSearch
+    success_url = reverse_lazy('authapp:profile')
+
+
 @csrf_exempt
 def save_search(request):
     if request.method == 'POST':
@@ -27,6 +43,7 @@ def save_search(request):
             json_data = json.loads(request.body)
             adults = json_data.get('adults')
             children = json_data.get('children')
+            origin_location_code = json_data.get('originLocationCode')
             departure_date = json_data.get('departureDate')
             origin_location_code = json_data.get('originLocationCode')
             if departure_date:
@@ -50,8 +67,8 @@ def save_search(request):
                 user=exist_user,
                 adults=adults,
                 children=children,
-                departureDate=departure_date,
                 origin_location_code=origin_location_code,
+                departureDate=departure_date,
                 destination_location_code=destination_location_code,
                 returnDate=returnDate,
                 infants=infants,

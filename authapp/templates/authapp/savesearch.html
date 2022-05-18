@@ -1,0 +1,51 @@
+{% extends "authapp/base.html"%}
+{% load static %}
+
+{% block css %}
+<link href="{% static 'css/profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block content%}
+<main>
+    <div class="content_profile">
+		<div class="title">
+		<h2> Список сохраненых уведомлений</h2>
+		</div>
+    	<table class="table">
+			<thead>
+				<tr>
+				<th>Отправление</th>
+				<th>Прибытие</th>
+				<th>Дата отправления</th>
+				<th>Дата возвращения</th>
+				<th>Кол-во взрослых</th>
+				<th>Кол-во детей</th>
+				<th>Кол-во младенцев</th>
+				<th>Класс билетов</th>
+				<th>Без пересадок</th>
+				<th> </th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for save in object_list %}
+			<tr>
+				<td>{{ save.origin_location_code }}</td>
+				<td>{{ save.destination_location_code }}</td>
+				<td>{{ save.departureDate }}</td>
+				<td>{{ save.returnDate }}</td>
+				<td>{{ save.adults }}</td>
+				<td>{{ save.children }}</td>
+				<td>{{ save.infants }}</td>
+				<td>{{ save.travelClass }}</td>
+				<td>{{ save.nonStop }}</td>
+				<td> <a href="{% url 'authapp:item_delete' save.pk %}" class="button" type="submit">Удалить</a>
+				</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+    </div>
+</main>
+
+{% endblock %}
